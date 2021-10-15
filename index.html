@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Simple calculator</title>
+</head>
+
+<body>
+    <h1> calculatrice</h1>
+    <h1> X </h1>
+    <input type="number" id="value1" required>
+    <br>
+    <h1> Y </h1>
+    <input type="number" id="value2" required>
+    <br>
+    <br>
+    <input class="substract" id="btnSub" type="button" value="-">
+    <input class="add" id="btnAdd" type="button" value="+">
+    <input class="diviser" id="btnDiv" type="button" value="/">
+    <input class="multiplier" id="btnMul" type="button" value="*">
+    <input class="modulo" id="btnMod" type="button" value="%">
+    <br>
+    <br>
+    <input class="egale" type="button" value="=">
+    <script type="text/javascript">
+    const number1 = document.getElementById("value1");
+    const number2 = document.getElementById("value2");
+    const buttons = document.querySelectorAll('input[type=button]');
+
+    const buttonArray = [...buttons];
+    console.log(buttonArray)
+
+    function addition(nombre1, nombre2) {
+        return nombre1 + nombre2;
+    }
+
+    function soustraction(nombre1, nombre2) {
+        return nombre1 - nombre2;
+    }
+
+    function multiplication(nombre1, nombre2) {
+        return nombre1 * nombre2;
+    }
+
+    function division(nombre1, nombre2) {
+        if (nombre2 == 0)
+            alert("division par Zero impossible !!")
+        else
+            return nombre1 / nombre2;
+    }
+
+    function modulo(nombre1, nombre2) {
+        return nombre1 % nombre2;
+    }
+
+    function egalite(nombre1, nombre2) {
+        if (nombre1 !== = nombre2)
+            return false;
+        return true;
+    }
+
+
+    buttonArray.forEach((element) => {
+
+        let res1 = Number(number1.value);
+        let res2 = Number(number1.value);
+        element.addEventListener('click', (e) => {
+
+            const operation = e.target.getAttribute('value');
+            switch (operation) {
+                case '+':
+                    console.log(operation)
+                    console.log(res1)
+                    return addition(res1, res2)
+
+                    break;
+                case '-':
+                    return soustraction(res1, res2)
+                    break;
+                case '*':
+                    return multiplication(res1, res2)
+                    break;
+                case '/':
+                    return division(res1, res2)
+                    break;
+                case '%':
+                    return modulo(res1, res2)
+                    break;
+
+            }
+        })
+    })
+    </script>
+</body>
+
+</html>
